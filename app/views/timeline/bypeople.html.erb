@@ -1,0 +1,35 @@
+<h1>사람별로 보기</h1>
+
+<ol>
+    <% @users.each do |u| %>
+       
+            <div class="row">
+            <div class="col-xs-6 col-lg-4">
+              <h2>  <%=u.email%> </h2>
+              <p> <% u.blogs.each do |b| %> </p>
+              <p> <%= b.content %></p>
+            </div>
+            </p>
+           
+            <%=form_tag '/comment', class: "form-inline" do %>
+            <input type="hidden" name="blog_id" value="<%=b.id%>">
+            
+            <div class="form-group">
+            <input type="text" name="comment" class="form-control">
+            </div>
+            <div class="form-group">
+            <input type ="submit" class="btn btn-warning">
+            </div>
+            
+        <%end%>
+            
+            <ol>
+            <% b.comments.each do |c| %>
+                <li><%=c.user.email%> : <%=c.msg%></li>
+              <%end%>
+            </ol>
+            <% end %>
+   </div>
+      <%end%>
+        
+</ol>
