@@ -32,13 +32,13 @@ class TimelineController < ApplicationController
     end
 
     def edit_content
-        @blog = Blog.find(params[:id])
-        @user = User.all
+        @edit_content = Blog.find(params[:id])
     end
     
     def edit_msg
-        @comment = Comment.find(params[:id])
-        @user = User.all
+        @edit_msg = Comment.find(params[:id])
+
+
     end
     
 
